@@ -5,9 +5,11 @@ class TypeOfUserSelectionSection extends StatefulWidget {
     super.key,
     required this.options,
     required this.onSelect,
+    required this.heading
   });
   final List<String> options;
   final Function(List<String> selectedItems) onSelect;
+  final String heading;
 
   @override
   State<TypeOfUserSelectionSection> createState() =>
@@ -27,10 +29,10 @@ class _TypeOfUserSelectionSectionState
       spacing: 16,
       children: [
         Text(
-          "Are you a guardian or a teacher",
+          widget.heading,
           style: Theme.of(
             context,
-          ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+          ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold,  color: Colors.white,),
         ),
 
         SizedBox(

@@ -13,7 +13,7 @@ class SignupSection extends StatelessWidget {
           "Welcome to W phonics!",
           style: Theme.of(
             context,
-          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
+          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold, color: Colors.white,),
           textAlign: TextAlign.center,
         ),
         Padding(
@@ -49,9 +49,9 @@ class AgreementWIdget extends StatelessWidget {
             Checkbox(
               value: false,
               onChanged: (value) {},
-              
+              side: BorderSide(color: Colors.white),
             ),
-            Text("SELECT ALL"),
+            Text("SELECT ALL", style: TextStyle( color: Colors.white,),),
           ],
         ),
         Padding(
@@ -60,9 +60,9 @@ class AgreementWIdget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Checkbox(value: false, onChanged: (value) {}),
+                  Checkbox(value: false,side: BorderSide(color: Colors.white), onChanged: (value) {}),
                   Expanded(
-                    child: Text("* I agree to the privacy policy and terms"),
+                    child: Text("* I agree to the privacy policy and terms", style: TextStyle( color: Colors.white,),),
                   ),
                 ],
               ),
@@ -71,13 +71,14 @@ class AgreementWIdget extends StatelessWidget {
                   Checkbox(
                     value: false,
                     onChanged: (value) {},
-                    checkColor: Colors.white,
-                    activeColor: Colors.white,
-                    focusColor: Colors.white,
+                    side: BorderSide(color: Colors.white),
                   ),
                   Expanded(
                     child: Text(
                       "I want to receive email update from Jolly Learning",
+                      style: TextStyle(
+                         color: Colors.white,
+                      ),
                     ),
                   ),
                 ],

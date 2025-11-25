@@ -50,13 +50,13 @@ class OnboardingPage extends StatelessWidget {
           "W Phonics",
           style: Theme.of(
             context,
-          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
+          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold, color: Colors.white,),
         ),
         Text(
           "The fun and interactive way to improve your kids reading and writing skills across all language",
           style: Theme.of(
             context,
-          ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
+          ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold, color: Colors.white,),
           textAlign: TextAlign.center,
         ),
         Padding(
