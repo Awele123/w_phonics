@@ -8,7 +8,10 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomButton(),
+      bottomNavigationBar: Padding(
+        padding:  EdgeInsets.symmetric(horizontal:40.0, vertical: 40.0, ),
+        child: CustomButton(),
+      ),
       backgroundColor: Theme.of(context).primaryColor,
       body: SafeArea(
         child: Padding(
@@ -30,7 +33,7 @@ class LoginPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text("Forgot Password", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),),
+                  Text("Forgot Password", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 15),),
                 ],
               ),
             
@@ -55,6 +58,7 @@ class CustomButton extends StatelessWidget {
         child: ElevatedButton(
           
           style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.grey,
             fixedSize: Size.fromWidth(
               MediaQuery.sizeOf(context).width * 0.7,
             ),
@@ -70,7 +74,9 @@ class CustomButton extends StatelessWidget {
             );
           },
                   
-          child: Text("Sign In"),
+          child: Text("Sign In", style: TextStyle(
+            color:Colors.white, 
+          ) ),
         ),
       ),
     );
