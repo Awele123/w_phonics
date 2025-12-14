@@ -4,10 +4,10 @@ import 'package:w_phonics/pages/onboarding_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main()async {
-  await Supabase.initialize(
-    url: Env.supabaseUrl,
-    anonKey: Env.supabasePubKey,
-  );
+ // await Supabase.initialize(
+   // url: Env.supabaseUrl,
+   // anonKey: Env.supabasePubKey,
+ // );
   runApp(const MyApp());
 }
 

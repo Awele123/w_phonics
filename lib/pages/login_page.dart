@@ -71,8 +71,8 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, required this.onPressed});
-  final Function() onPressed;
+  const CustomButton({super.key,  this.onPressed});
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
