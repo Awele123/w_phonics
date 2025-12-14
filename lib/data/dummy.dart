@@ -38,7 +38,7 @@ final _dummyWritingItems = [
   WritingItem(character: "dad", sound: "assets/audio/writing/dad.mp3", type: WritingType.word),
 ];
 
-// Dummy PhonicsCharacters
+// Dummy PhonicsCharacters phonicsCharacters.wher
 final List<PhonicsCharacter> phonicsCharacters = [
   PhonicsCharacter(
     character: "s",

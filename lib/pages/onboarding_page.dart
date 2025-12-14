@@ -80,7 +80,7 @@ class OnboardingPage extends StatelessWidget {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(foregroundColor: Colors.blue),
                 onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) {

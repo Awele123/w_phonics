@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:w_phonics/pages/home_page.dart';
+import 'package:w_phonics/repository/auth_repository.dart';
+import 'package:w_phonics/widgets/password_textfield.dart';
 import 'package:w_phonics/widgets/custom_textfield.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Padding(
-        padding:  EdgeInsets.symmetric(horizontal:40.0, vertical: 40.0, ),
-        child: CustomButton(),
-      ),
+      bottomNavigationBar: CustomButton(),
       backgroundColor: Theme.of(context).primaryColor,
       body: SafeArea(
         child: Padding(
@@ -33,7 +40,7 @@ class LoginPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text("Forgot Password", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 15),),
+                  Text("Forgot Password", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800),),
                 ],
               ),
             
@@ -43,12 +50,29 @@ class LoginPage extends StatelessWidget {
       ),
     );
   }
+
+  Future<void> _loginUser() async {
+    try {
+      await AuthRepository().signIn(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomePage()),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(e.toString())));
+    }
+  }
 }
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({
-    super.key,
-  });
+  const CustomButton({super.key, required this.onPressed});
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +80,7 @@ class CustomButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ElevatedButton(
-          
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.grey,
             fixedSize: Size.fromWidth(
               MediaQuery.sizeOf(context).width * 0.7,
             ),
@@ -74,9 +96,7 @@ class CustomButton extends StatelessWidget {
             );
           },
                   
-          child: Text("Sign In", style: TextStyle(
-            color:Colors.white, 
-          ) ),
+          child: Text("Sign In"),
         ),
       ),
     );
